@@ -30,8 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.celsiusTextField.text=blankString;
-    self.fahrenheitTextField.text=blankString;
+    self.celsiusTextField.text=BLANKSTRING;
+    self.fahrenheitTextField.text=BLANKSTRING;
     
 }
 
@@ -43,7 +43,7 @@
 
 #pragma mark - Static Resources
 
-static NSString * const blankString = @"";
+static NSString * const BLANKSTRING = @"";
 /*+ (void) clearTextField:(UITextField *)textField {
     textField.text = blankString;
 }*/
@@ -55,9 +55,9 @@ static NSString * const blankString = @"";
 - (IBAction)clicked:(UITextField *)sender {
     NSLog(@"Sender is: %@", sender);
     if ([sender isEqual:self.fahrenheitTextField])
-        self.celsiusTextField.text = blankString;
+        self.celsiusTextField.text = BLANKSTRING;
     else if ([sender isEqual:self.celsiusTextField])
-        self.fahrenheitTextField.text = blankString;
+        self.fahrenheitTextField.text = BLANKSTRING;
 ;
 }
 
@@ -75,11 +75,11 @@ static NSString * const blankString = @"";
     float celsisusValue = [self.celsiusTextField.text floatValue];
     float fahrenheitValue = [self.fahrenheitTextField.text floatValue];
     
-    if([self.celsiusTextField.text isEqualToString:blankString]) {
+    if([self.celsiusTextField.text isEqualToString:BLANKSTRING]) {
         NSLog(@"Fahreneit input, update celsius");
         celsisusValue=(fahrenheitValue - 32.0)*100.0/180.0;
         self.celsiusTextField.text = [NSString stringWithFormat:@"%0.1f",celsisusValue];
-    } else if ([self.fahrenheitTextField.text isEqualToString:blankString]) {
+    } else if ([self.fahrenheitTextField.text isEqualToString:BLANKSTRING]) {
         NSLog(@"Celsius input, update Fahreneit");
         fahrenheitValue = (celsisusValue * 180.0/100.0) + 32.0;
         self.fahrenheitTextField.text = [NSString stringWithFormat:@"%.1f",fahrenheitValue];
